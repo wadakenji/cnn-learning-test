@@ -1,0 +1,1 @@
+docker attach cnn-learning-test
