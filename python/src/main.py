@@ -1,6 +1,7 @@
 import numpy as np
 import _pickle,random
 from PIL import Image
+import tensorflow as tf
 
 IMAGE_SHAPE = (28, 28, 1)
 BATCH_SIZE = 495
@@ -43,3 +44,4 @@ if __name__ == "__main__":
     images_3, labels_3 = get_images_and_labels('src/data/cucumber-9-python/data_batch_3')
     images_4, labels_4 = get_images_and_labels('src/data/cucumber-9-python/data_batch_4')
     images_5, labels_5 = get_images_and_labels('src/data/cucumber-9-python/data_batch_5')
+    print(tf.__version__)
