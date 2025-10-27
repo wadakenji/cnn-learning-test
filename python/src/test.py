@@ -1,0 +1,9 @@
+from tensorflow.keras.models import load_model
+from data.get_data import images_test, labels_test
+
+if __name__ == "__main__":
+    model = load_model('src/models/sample_cnn/model.h5')
+    score = model.evaluate(images_test, labels_test, verbose=1)
+    print('Test loss: ', score[0])
+    print('Test mae: ', score[1])
+    
