@@ -1,1 +1,1 @@
-docker build . -t cnn-learning-test
+docker build . --target develop -t cnn-learning-test
