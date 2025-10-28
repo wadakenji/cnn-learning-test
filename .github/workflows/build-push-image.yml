@@ -26,10 +26,9 @@ jobs:
       - name: Build and push API
         uses: docker/build-push-action@v5
         with:
-          context: .
+          context: python
           push: true
           provenance: false
-          file: python/Dockerfile
           target: lambda
           tags: ${{ secrets.ECR_REGISTRY }}/${{ secrets.ECR_REPOSITORY }}:latest
 
