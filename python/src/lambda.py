@@ -1,3 +1,13 @@
-import sys
+import numpy as np
+from tensorflow.keras.models import load_model
+
+def predict(image, model_type = 'sample_cnn'):
+   model_dir = 'src/models/sample_cnn'
+   model = load_model(model_dir + '/model.h5')
+   predicted = model.predict(np.array([image]))
+   return predicted[0][0]
+
 def handler(event, context):
-    return 'Hello from AWS Lambda using Python' + sys.version + '!'
+    data = np.zeros((32,32,3))
+    value = predict(data)
+    return value.item()

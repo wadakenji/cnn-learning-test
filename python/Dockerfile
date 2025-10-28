@@ -6,5 +6,5 @@ WORKDIR /cnn-learning-test
 
 FROM public.ecr.aws/lambda/python:3.13 as lambda
 RUN pip install tensorflow numpy pillow matplotlib
-COPY src/lambda.py ${LAMBDA_TASK_ROOT}
-CMD ["lambda.handler"]
+COPY src ${LAMBDA_TASK_ROOT}/src
+CMD ["src.lambda.handler"]
