@@ -11,6 +11,7 @@ jobs:
       id-token: write
       contents: read
     steps:
+      - uses: actions/checkout@v4
       - name: Set up QEMU
         uses: docker/setup-qemu-action@v3
       - name: Set up Docker Buildx
@@ -26,7 +27,7 @@ jobs:
       - name: Build and push API
         uses: docker/build-push-action@v5
         with:
-          context: ./python
+          context: python
           push: true
           provenance: false
           target: lambda
