@@ -4,7 +4,7 @@ RUN python -m pip install tensorflow==2.10.0 -f https://files.pythonhosted.org/p
 RUN python -m pip install "numpy<2" pillow matplotlib
 WORKDIR /cnn-learning-test
 
-FROM public.ecr.aws/lambda/python:3.10 as lambda
+FROM public.ecr.aws/lambda/python:3.13 as lambda
 RUN pip install tensorflow numpy pillow matplotlib
 COPY src/lambda.py ${LAMBDA_TASK_ROOT}
 CMD ["lambda.handler"]
