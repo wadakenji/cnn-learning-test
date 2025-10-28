@@ -34,7 +34,7 @@ if __name__ == "__main__":
                        verbose=1,
                       )
 
-    model.save(model_dir + '/model.h5')
+    model.save(model_dir + '/model.keras')
 
     plot_history(result, model_dir)
     

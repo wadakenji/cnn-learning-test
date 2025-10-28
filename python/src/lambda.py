@@ -3,7 +3,7 @@ from tensorflow.keras.models import load_model
 
 def predict(image, model_type = 'sample_cnn'):
    model_dir = 'src/models/sample_cnn'
-   model = load_model(model_dir + '/model.h5')
+   model = load_model(model_dir + '/model.keras')
    predicted = model.predict(np.array([image]))
    return predicted[0][0]
 
