@@ -1,12 +1,12 @@
 from tensorflow.keras.models import Sequential
-from tensorflow.keras.layers import Conv2D, MaxPooling2D
-from tensorflow.keras.layers import Flatten, Dense, Dropout, BatchNormalization
+from tensorflow.keras.layers import Conv2D, MaxPooling2D, Flatten, Dense, Dropout, BatchNormalization, Input
 
 # 以下の記事で使用されていたモデル
 # https://www.yakupro.info/entry/cnn-regression
 def sample_cnn(input_shape):
     model = Sequential()
-    model.add(Conv2D(16, (3, 3), activation='relu', input_shape=input_shape))
+    model.add(Input(shape=input_shape))
+    model.add(Conv2D(16, (3, 3), activation='relu'))
     model.add(Conv2D(32, (3, 3), activation='relu'))
     model.add(MaxPooling2D(pool_size=(2, 2)))
     model.add(Conv2D(64, (3, 3),activation='relu'))
