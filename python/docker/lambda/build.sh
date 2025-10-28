@@ -1,0 +1,1 @@
+docker build . --target lambda -t cnn-learning-test-lambda
