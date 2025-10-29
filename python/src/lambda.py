@@ -8,6 +8,13 @@ def predict(image, model_type = 'sample_cnn'):
    return predicted[0][0]
 
 def handler(event, context):
-    data = np.zeros((32,32,3))
-    value = predict(data)
-    return value.item()
+    #     data = np.zeros((32,32,3))
+    #     value = predict(data)
+
+    print('##################################')
+    print(event)
+    print('##################################')
+    print(context)
+    print('##################################')
+
+    return 'hello world'
