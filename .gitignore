@@ -2,3 +2,4 @@
 __pycache__
 *.png
 web/node_modules
+web/.env
