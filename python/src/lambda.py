@@ -1,3 +1,6 @@
+import base64
+from io import BytesIO
+from PIL import Image
 import numpy as np
 from tensorflow.keras.models import load_model
 
@@ -7,14 +10,14 @@ def predict(image, model_type = 'sample_cnn'):
    predicted = model.predict(np.array([image]))
    return predicted[0][0]
 
+def base64_to_ndarray(b64_data):
+    binary = base64.b64decode(b64_data)
+    pil_image = Image.open(BytesIO(binary))
+    return np.array(pil_image)
+
 def handler(event, context):
-    #     data = np.zeros((32,32,3))
-    #     value = predict(data)
+    b64_data = event['body']
+    image = base64_to_ndarray(b64_data)
+    value = predict(image)
 
-    print('##################################')
-    print(event)
-    print('##################################')
-    print(context)
-    print('##################################')
-
-    return 'hello world'
+    return {'body': value.item()}
