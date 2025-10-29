@@ -3,6 +3,9 @@ name: Build And Push Docker Image To ECR
 on:
   workflow_dispatch:
 
+env:
+  VITE_API_URL: ${{ vars.VITE_API_URL }}
+
 jobs:
   build:
     name: Build And Push
